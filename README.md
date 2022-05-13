@@ -1,3 +1,4 @@
+This library aims to generate tsdf out of shapenet mesh, which is part of depth_renderer work
 ## Color & Depth Renderer for ShapeNet
 
 ---
