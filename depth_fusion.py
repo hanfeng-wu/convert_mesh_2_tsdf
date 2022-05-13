@@ -21,9 +21,9 @@ import h5py
 voxel_res = 64
 truncation_factor = 10
 
-def savewh5(tsdf, path, name):
-    h5f = h5py.File(name, 'w')
-    h5f.create_dataset('dataset_1', data=tsdf)
+def savewh5(tsdf, path):
+    h5f = h5py.File(path, 'w')
+    h5f.create_dataset('pc_sdf_sample', data=tsdf)
     h5f.close()
 
 
@@ -40,7 +40,7 @@ def process_mesh(obj_path, view_ids, cam_Ks, cam_RTs):
     cat, model = obj_path.split('/')[3:5]
 
     '''Decide save path'''
-    output_file = os.path.join(watertight_mesh_path, cat, model, 'model.off')
+    output_file = os.path.join(watertight_mesh_path, cat, model, 'ori_sample.h5')
 
     if os.path.exists(output_file):
         return None
@@ -72,16 +72,7 @@ def process_mesh(obj_path, view_ids, cam_Ks, cam_RTs):
 
     # To ensure that the final mesh is indeed watertight
     tsdf = np.pad(tsdf, 1, 'constant', constant_values=1e6)
-    
-
-    vertices, triangles = mcubes.marching_cubes(-tsdf, 0)
-    # Remove padding offset
-    vertices -= 1
-    # Normalize to [-0.5, 0.5]^3 cube
-    vertices /= voxel_res
-    vertices -= 0.5
-
-    mcubes.export_off(vertices, triangles, output_file)
+    savewh5(tsdf, output_file)
 
 if __name__ == '__main__':
     '''generate watertight meshes by patch'''
