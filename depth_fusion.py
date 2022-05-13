@@ -71,7 +71,8 @@ def process_mesh(obj_path, view_ids, cam_Ks, cam_RTs):
     
 
     # To ensure that the final mesh is indeed watertight
-    tsdf = np.pad(tsdf, 1, 'constant', constant_values=1e6)
+    #tsdf = np.pad(tsdf, 1, 'constant', constant_values=1e6)
+    print(tsdf.shape)
     savewh5(tsdf, output_file)
 
 if __name__ == '__main__':
