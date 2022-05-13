@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
     all_objects = load_data_path(shapenet_path)
 
-    p = Pool(processes=cpu_cores)
+    p = Pool(processes=8)
     p.map(normalize, all_objects)
     p.close()
     p.join()

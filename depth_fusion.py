@@ -16,10 +16,17 @@ from functools import partial
 from tools.utils import dist_to_dep
 from settings import cpu_cores
 from tools.read_and_write import load_data_path
+import h5py
 
-
-voxel_res = 256
+voxel_res = 64
 truncation_factor = 10
+
+def savewh5(tsdf, path, name):
+    h5f = h5py.File(name, 'w')
+    h5f.create_dataset('dataset_1', data=tsdf)
+    h5f.close()
+
+
 
 def process_mesh(obj_path, view_ids, cam_Ks, cam_RTs):
     '''
@@ -61,9 +68,12 @@ def process_mesh(obj_path, view_ids, cam_Ks, cam_RTs):
 
     # rotate to the correct system
     tsdf = np.transpose(tsdf[0], [2, 1, 0])
+    
 
     # To ensure that the final mesh is indeed watertight
     tsdf = np.pad(tsdf, 1, 'constant', constant_values=1e6)
+    
+
     vertices, triangles = mcubes.marching_cubes(-tsdf, 0)
     # Remove padding offset
     vertices -= 1

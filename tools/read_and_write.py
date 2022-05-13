@@ -118,7 +118,7 @@ def write_json(file, data):
         json.dump(data, f)
 
 def load_data_path(shapenet_path):
-    target_obj_file = 'model_normalized.obj'
+    target_obj_file = 'model.obj'
     data_path = []
     for root, dirs, files in os.walk(shapenet_path, topdown=True):
         if target_obj_file in files:
