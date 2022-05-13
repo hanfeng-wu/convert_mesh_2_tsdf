@@ -76,6 +76,8 @@ This library includes the tools for rendering multi-view color and depth images 
    ```
    The reconstructed meshes are saved in ``./datasets/ShapeNetCore.v2_watertight``
    
+   if you have problem with import cyfusion turn to https://github.com/griegler/pyfusion/issues/1#issuecomment-347494742
+   
 
 ---
 
