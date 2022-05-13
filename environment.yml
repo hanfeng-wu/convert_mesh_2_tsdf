@@ -42,3 +42,4 @@ dependencies:
     - pytz==2021.1
     - seaborn==0.11.1
     - vtk==9.0.1
+    - h5py
