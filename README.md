@@ -18,7 +18,7 @@ This library includes the tools for rendering multi-view color and depth images 
 
 <img src="datasets/screenshots/point_cloud_1.png" alt="point_cloud_1.png" width="45%" /> <img src="datasets/screenshots/point_cloud_2.png" alt="point_cloud_2.png" width="45%" />
 
-4. Watertight meshes (fused from depth maps)
+4. Watertight meshes (fused from depth maps) (we use only a subproduct to generate tsdf in h5)
 
 <img src="datasets/screenshots/mesh_1.png" alt="mesh_1.png" width="45%" /> <img src="datasets/screenshots/mesh_2.png" alt="mesh_2.png" width="45%" />
 
