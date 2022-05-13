@@ -70,7 +70,7 @@ This library includes the tools for rendering multi-view color and depth images 
    ```angular2html
    python visualization/draw_pc_from_depth.py
    ```
-5. Watertight meshes can be obtained by
+5. Final sdfs can be obtained by
    ```angular2html
    python depth_fusion.py
    ```
