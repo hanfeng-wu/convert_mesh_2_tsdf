@@ -78,7 +78,7 @@ This library includes the tools for rendering multi-view color and depth images 
    
    if you have problem with import cyfusion turn to https://github.com/griegler/pyfusion/issues/1#issuecomment-347494742
    
-   Note: you should '''export PYTHONPATH=/home/test/path/to/pyfusion:$PYTHONPATH''' the last comment is wrong
+   Note: you should ```export PYTHONPATH=/home/test/path/to/pyfusion:$PYTHONPATH``` the last comment is wrong
    
 
 ---
